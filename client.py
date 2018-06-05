@@ -20,11 +20,11 @@ transport = paramiko.Transport(('45.1.1.1', 22))
 transport.connect(username='root', password='22222222')
 ssh = paramiko.SSHClient()
 ssh._transport = transport
-stdin,stdout,stderr = ssh.exec_command('python3 /root/server.py '+input_url)
+stdin,stdout,stderr = ssh.exec_command('python /root/server.py '+input_url)
 cat_ = stdout.read().decode()
 print(cat_)
 sftp = paramiko.SFTPClient.from_transport(transport)
-sftp.get('/root/url_list.txt', 'url_list.txt')
+sftp.get('/root/url1.txt', 'url_list.txt')
 #---------------------------------------------------
 
 ls=open('url_list.txt','r')
